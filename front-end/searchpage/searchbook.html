@@ -1,76 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Search Example</title>
-
-<style>
-input {
-  padding: 8px;
-  width: 250px;
-  margin-bottom: 10px;
-}
-.book {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin: 5px 0;
-}
-</style>
+  <title>CSV Book Search</title>
 </head>
-
 <body>
 
-<h2>Search Books</h2>
+<input
+  type="text"
+  id="search"
+  onkeyup="searchList()"
+  placeholder="Search books..."
+>
 
-<input type="text" id="searchInput" placeholder="Search book..." onkeyup="searchBook()">
-
-<div class="book">Atomic Habits
-    <button>Borrow</button><button>Rent</button></div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div>
-<div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div>
-<div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</iv>
-<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">Clean Code</div>
-<div class="book">Atomic Habits</div>
-<div class="book">Harry Potter</div>
-<div class="book">The Alchemist</div>
-<div class="book">gggg</div>
-
-
+<ul id="list"></ul>
 
 <script>
-function searchBook() {
-  let input = document.getElementById("searchInput").value.toLowerCase();
-  let books = document.getElementsByClassName("book");
+let books = [];
 
-  for (let i = 0; i < books.length; i++) {
-    let text = books[i].textContent.toLowerCase();
-    books[i].style.display = text.includes(input) ? "" : "none";
-  }
+// 1️⃣ Load CSV
+fetch("books.csv")
+  .then(res => res.text())
+  .then(text => {
+    const rows = text.trim().split("\n").slice(1);
+
+    books = rows.map(row => {
+      // Handle commas inside quotes safely
+      const values = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
+
+      return {
+        title: values[0],
+        category: values[1],
+        tags: values[2],
+        rating: values[3]
+      };
+    });
+
+    renderList(books);
+  });
+
+// 2️⃣ Render ONLY titles
+function renderList(data) {
+  const ul = document.getElementById("list");
+  ul.innerHTML = "";
+
+  data.forEach(book => {
+    const li = document.createElement("li");
+    li.textContent = book.title;
+    ul.appendChild(li);
+  });
+}
+
+// 3️⃣ Search by title / category / tags
+function searchList() {
+  const input = document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+  const filtered = books.filter(book =>
+    book.title.toLowerCase().includes(input) ||
+    book.category.toLowerCase().includes(input) ||
+    book.tags.toLowerCase().includes(input)
+  );
+
+  renderList(filtered);
 }
 </script>
 
