@@ -10,7 +10,7 @@
 
 body{
     height: 100vh;
-    background: #212529;
+    background: #F1F3E0;
 }
 
 .navbar{
@@ -22,7 +22,7 @@ body{
 }
 
 .navbar h2{
-    color: #ffb742;
+    color: #778873;
     font-weight: 600;
 }
 
@@ -36,14 +36,14 @@ body{
 
 .navbar ul li a{
     text-decoration: none;
-    color: #fff;
+    color: #A1BC98;
     font-size: 16px;
     margin-right: 25px;
     transition: color 0.3s ease;
 }
 
 .navbar ul li:hover a{
-    color: #ffb742;
+    color: #778873;
 }
 
 .navbar ul li:last-child a{
@@ -51,7 +51,7 @@ body{
 }
 
 .hire-btn{
-    background: #ffb742;
+    background: #778873;
     padding: 6px 30px;
     border: none;
     font-size: 16px;
@@ -61,7 +61,7 @@ body{
 }
 
 .hire-btn:hover{
-    background: #fb8c00;
+    background: #ce0728;
 }
 
 .main{
@@ -74,25 +74,25 @@ body{
 
 .main h4{
     font-size: 32px;
-    color: #fff;
+    color: #778873;
     font-weight: 600;
 }
 
 .main h4 span{
-    color: #ffb742;
+    color: #A1BC98;
     text-decoration: underline;
 }
 
 .main p.title{
     font-size: 44px;
     font-weight: 600;
-    color: #fff;
+    color: #778873;
     margin-top: 8px;
 }
 
 .main p.subtitle{
     font-size: 16px;
-    color: #ccc;
+    color: #778873;
     margin-top: 20px;
 }
 
@@ -111,7 +111,7 @@ body{
 }
 
 .guarantee .item{
-    background: #292b2e;
+    background: #778873;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -125,7 +125,7 @@ body{
 }
 
 .guarantee .item:hover{
-    border-color: #ffb742;
+    border-color: #D2DCB6;
 }
 
 .guarantee .item .icon{
@@ -140,7 +140,7 @@ body{
 }
 
 .guarantee .item:hover .icon{
-    background-color: #ffb742;
+    background-color: #A1BC98;
 }
 
 .guarantee .item .icon i{
@@ -154,7 +154,7 @@ body{
 }
 
 .guarantee .item .info h3{
-    color: #ffb742;
+    color: #D2DCB6;
     font-size: 28px;
 }
 
@@ -171,7 +171,7 @@ body{
 }
 
 .guarantee .item:hover > i{
-    color: #ffb742;
+    color: #A1BC98;
 }
 
 .seprator{
@@ -311,7 +311,7 @@ footer .cols .about-col{
 
 footer .cols .about-col h3{
     color: #ffb742;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 footer .cols .about-col p{
