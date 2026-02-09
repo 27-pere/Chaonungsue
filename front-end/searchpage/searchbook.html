@@ -1,3 +1,83 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Search Example</title>
+
+<style>
+input {
+  padding: 8px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+.book {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Search Books</h2>
+
+<input type="text" id="searchInput" placeholder="Search book..." onkeyup="searchBook()">
+
+<div class="book">Atomic Habits
+    <button>Borrow</button><button>Rent</button></div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div>
+<div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div>
+<div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</iv>
+<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div><div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">Clean Code</div>
+<div class="book">Atomic Habits</div>
+<div class="book">Harry Potter</div>
+<div class="book">The Alchemist</div>
+<div class="book">gggg</div>
+
+
+
+<script>
+function searchBook() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let books = document.getElementsByClassName("book");
+
+  for (let i = 0; i < books.length; i++) {
+    let text = books[i].textContent.toLowerCase();
+    books[i].style.display = text.includes(input) ? "" : "none";
+  }
+}
+</script>
+
+</body>
+</html>
+=======
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,3 +149,4 @@ function searchList() {
 
 </body>
 </html>
+>>>>>>> 9220b523c10d66bef024dca09305842f50e2bb24
