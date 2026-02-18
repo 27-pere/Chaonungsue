@@ -1,81 +1,178 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Modern Login Page | AsmrProg</title>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Modern Login Page</title>
+</head>
 
-  <body>
+<body>
     <div class="container" id="container">
-      <div class="form-container sign-up">
-        <form>
-          <h1>Create Account</h1>
-          <div class="social-icons">
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-google-plus-g"></i
-            ></a>
-            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-linkedin-in"></i
-            ></a>
-          </div>
-          <span>or use your email for registeration</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button class="signupBtn" onclick="signup()">signup</button>
-            <script>
-              function signup() {
-                window.location.href = "../askpage/ask.html";
-             }
-            </script>
-        </form>
-      </div>
-      <div class="form-container sign-in">
-        <form>
-          <h1>Sign In</h1>
-          <div class="social-icons">
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-google-plus-g"></i
-            ></a>
-            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="icon"
-              ><i class="fa-brands fa-linkedin-in"></i
-            ></a>
-          </div>
-          <span>or use your email password</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <a href="#">Forget Your Password?</a>
-          <button>Sign In</button>
-        </form>
-      </div>
-      <div class="toggle-container">
-        <div class="toggle">
-          <div class="toggle-panel toggle-left">
-            <h1>Welcome Back!</h1>
-            <p>Enter your personal details to use all of site features</p>
-            <button class="hidden" id="login">Sign In</button>
-          </div>
-          <div class="toggle-panel toggle-right">
-            <h1>Hello, Friend!</h1>
-            <p>
-              Register with your personal details to use all of site features
-            </p>
-            <button class="hidden" id="register">Sign Up</button>
-          </div>
+        
+        <div class="form-container sign-up">
+            <form id="signupForm">
+                <h1>Create Account</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                
+                <button type="submit" id="btnLoading">Sign Up</button>
+            </form>
         </div>
-      </div>
+
+        <div class="form-container sign-in">
+            <form id="signinForm"> 
+                <h1>Sign In</h1>
+                <div class="social-icons">
+                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email password</span>
+      
+                <input type="email" id="signinEmail" placeholder="Email" required>
+                <input type="password" id="signinPassword" placeholder="Password" required>
+      
+                <a href="#">Forget Your Password?</a>
+                <button type="submit" id="btnSignin">Sign In</button>
+            </form>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
-  </body>
-</html>
+    <script>
+        // ******************************************************
+        // URL ของ Google Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw0HXbCaUjhV1nIw5x3MBZbosdOelH4isIgb2Cht7hU8lCSNtBbUnRvXzKHYx868FI4zg/exec';
+        // ******************************************************
+
+        const container = document.getElementById('container');
+        const registerBtn = document.getElementById('register');
+        const loginBtn = document.getElementById('login');
+
+        // Animation สลับหน้า
+        registerBtn.addEventListener('click', () => {
+            container.classList.add("active");
+        });
+
+        loginBtn.addEventListener('click', () => {
+            container.classList.remove("active");
+        });
+
+        // ---------------------------------------------------------
+        // 1. ส่วนจัดการ Sign Up (สมัครสมาชิก)
+        // ---------------------------------------------------------
+        const signupForm = document.getElementById('signupForm');
+        const signupBtn = document.getElementById('btnLoading');
+
+        signupForm.addEventListener('submit', e => {
+            e.preventDefault(); 
+            
+            signupBtn.innerText = "Saving...";
+            signupBtn.disabled = true;
+
+            const formData = new FormData(signupForm);
+            
+            // สร้างข้อมูลส่งไป (ระบุ action: 'register')
+            const data = {
+              action: 'register',
+              name: formData.get('name'),
+              email: formData.get('email'),
+              password: formData.get('password')
+            };
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                mode: 'no-cors'
+            })
+            .then(() => {
+                alert("สมัครสมาชิกเรียบร้อย!");
+                signupForm.reset();
+                signupBtn.innerText = "Sign Up";
+                signupBtn.disabled = false;
+                container.classList.remove("active"); // สลับไปหน้า Login
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("เกิดข้อผิดพลาดในการสมัคร");
+                signupBtn.innerText = "Sign Up";
+                signupBtn.disabled = false;
+            });
+        });
+
+        // ---------------------------------------------------------
+        // 2. ส่วนจัดการ Sign In (เข้าสู่ระบบ)
+        // ---------------------------------------------------------
+        const signinForm = document.getElementById('signinForm');
+        const signinBtn = document.getElementById('btnSignin');
+
+        signinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            signinBtn.innerText = "Checking...";
+            signinBtn.disabled = true;
+
+            const emailInput = document.getElementById('signinEmail').value;
+            const passwordInput = document.getElementById('signinPassword').value;
+
+            // ดึงข้อมูลมาเช็ค
+            fetch(scriptURL)
+            .then(response => response.json())
+            .then(users => {
+                console.log("Users:", users); // ดูข้อมูลใน Console
+                
+                // ค้นหา User
+                const user = users.find(u => 
+                    String(u.email).trim() === String(emailInput).trim() && 
+                    String(u.password).trim() === String(passwordInput).trim()
+                );
+
+                if (user) {
+                    alert("Login สำเร็จ! ยินดีต้อนรับ " + user.name);
+                    
+                    // จำข้อมูลไว้ใช้หน้าถัดไป
+                    localStorage.setItem('userEmail', user.email); 
+                    localStorage.setItem('currentUser', user.name);
+                    
+                    window.location.href = "../askpage/ask.html";
+                } else {
+                    // ถ้าไม่เจอ
+                    alert("อีเมลหรือรหัสผ่านไม่ถูกต้อง!");
+                    signinBtn.innerText = "Sign In";
+                    signinBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("เกิดข้อผิดพลาด: ดึงข้อมูลไม่ได้");
+                signinBtn.innerText = "Sign In";
+                signinBtn.disabled = false;
+            });
+        });
+    </script>
