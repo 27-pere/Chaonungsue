@@ -3,1016 +3,112 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>ChaoNungSue</title>
+    <title>ChaoNungSue - Home</title>
   </head>
 
   <body>
     <div class="navbar">
       <h2>ChaoNungSue</h2>
+      
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="ค้นหาหนังสือหรือชื่อผู้เขียน..." onkeyup="searchBooks()">
+        <i class='bx bx-search'></i>
+      </div>
+
       <ul>
-        <li><a href="../searchpage/searchbook.html">Search</a></li>
-        <li>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Skills</a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Portfolio</a>
-        </li>
-        <li>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Contact</a>
-        </li>
-        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">About</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
       <button class="hire-btn" onclick="login()">Login</button>
-      <script>
-        function login() {
-          window.location.href = "../loginpage/index.html";
-        }
-      </script>
     </div>
 
-    <center>
-      <div id="middle">
-        <div class="main">
-          <h4>Welcome to ChaoNungSue</h4>
-          <p class="title">Your Virtual Library</p>
-          <p class="subtitle">
-            Borrow books of your interests, or just take a look around !
-          </p>
-        </div>
+    <div id="hero-section">
+      <div class="main">
+        <h4>Welcome to ChaoNungSue</h4>
+        <p class="title">Your Virtual Library</p>
+        <p class="subtitle">Borrow books of your interests, or just take a look around!</p>
       </div>
-    </center>
-
-    <h2 class="instant-index-list-heading">
-      <a href="/booktok-books">Recommended</a>
-      <a class="instant-index-list-link" href="/booktok-books">See all →</a>
-    </h2>
-
-    <div class="scrollable-list">
-      <a
-        href="/books/harry-potter-and-the-sorcerer-s-stone"
-        class="scrollable-list-item"
-      >
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_harry-potter-and-the-sorcerer-s-stone_360px_1747127899.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_harry-potter-and-the-sorcerer-s-stone_360px_1747127899.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_harry-potter-and-the-sorcerer-s-stone_360px_1747127899.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_harry-potter-and-the-sorcerer-s-stone_360px_1747127899.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_harry-potter-and-the-sorcerer-s-stone_360px_1747127899.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_harry-potter-and-the-sorcerer-s-stone_360px_1747127899.jpg"
-              alt="Harry Potter and the Sorcerer&amp;#039;s Stone Summary"
-              loading="lazy"
-              data-id="2482529"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">
-            Harry Potter and the Sorcerer's Stone
-          </div>
-          <div class="scrollable-list-author">J.K. Rowling</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.47
-            </div>
-
-            <div class="ratings-value ratings-value-index">10.9M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/the-hunger-games" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-hunger-games_360px_1747150304.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-hunger-games_360px_1747150304.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_the-hunger-games_360px_1747150304.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-hunger-games_360px_1747150304.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-hunger-games_360px_1747150304.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_the-hunger-games_360px_1747150304.jpg"
-              alt="The Hunger Games Summary"
-              loading="lazy"
-              data-id="2482807"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">The Hunger Games</div>
-          <div class="scrollable-list-author">Suzanne Collins</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.34
-            </div>
-
-            <div class="ratings-value ratings-value-index">9.4M+</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/pride-and-prejudice" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_pride-and-prejudice_360px_1747129804.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_pride-and-prejudice_360px_1747129804.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_pride-and-prejudice_360px_1747129804.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_pride-and-prejudice_360px_1747129804.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_pride-and-prejudice_360px_1747129804.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_pride-and-prejudice_360px_1747129804.jpg"
-              alt="Pride and Prejudice Summary"
-              loading="lazy"
-              data-id="2483643"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">Pride and Prejudice</div>
-          <div class="scrollable-list-author">Jane Austen</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.29
-            </div>
-
-            <div class="ratings-value ratings-value-index">4.5M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/it-ends-with-us" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_it-ends-with-us_360px_1747129528.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_it-ends-with-us_360px_1747129528.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_it-ends-with-us_360px_1747129528.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_it-ends-with-us_360px_1747129528.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_it-ends-with-us_360px_1747129528.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_it-ends-with-us_360px_1747129528.jpg"
-              alt="It Ends with Us Summary"
-              loading="lazy"
-              data-id="2484579"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">It Ends with Us</div>
-          <div class="scrollable-list-author">Colleen Hoover</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.11
-            </div>
-
-            <div class="ratings-value ratings-value-index">4.3M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/a-court-of-thorns-and-roses" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-thorns-and-roses_360px_1747137372.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-thorns-and-roses_360px_1747137372.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_a-court-of-thorns-and-roses_360px_1747137372.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-thorns-and-roses_360px_1747137372.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-thorns-and-roses_360px_1747137372.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_a-court-of-thorns-and-roses_360px_1747137372.jpg"
-              alt="A Court of Thorns and Roses Summary"
-              loading="lazy"
-              data-id="2483118"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">A Court of Thorns and Roses</div>
-          <div class="scrollable-list-author">Sarah J. Maas</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.17
-            </div>
-
-            <div class="ratings-value ratings-value-index">3.7M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a
-        href="/books/the-seven-husbands-of-evelyn-hugo"
-        class="scrollable-list-item"
-      >
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-seven-husbands-of-evelyn-hugo_360px_1747137277.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-seven-husbands-of-evelyn-hugo_360px_1747137277.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_the-seven-husbands-of-evelyn-hugo_360px_1747137277.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-seven-husbands-of-evelyn-hugo_360px_1747137277.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-seven-husbands-of-evelyn-hugo_360px_1747137277.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_the-seven-husbands-of-evelyn-hugo_360px_1747137277.jpg"
-              alt="The Seven Husbands of Evelyn Hugo Summary"
-              loading="lazy"
-              data-id="2484499"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">
-            The Seven Husbands of Evelyn Hugo
-          </div>
-          <div class="scrollable-list-author">Taylor Jenkins Reid</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.40
-            </div>
-
-            <div class="ratings-value ratings-value-index">3.7M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/verity" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_verity_360px_1747138930.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_verity_360px_1747138930.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_verity_360px_1747138930.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_verity_360px_1747138930.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_verity_360px_1747138930.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_verity_360px_1747138930.jpg"
-              alt="Verity Summary"
-              loading="lazy"
-              data-id="2482949"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">Verity</div>
-          <div class="scrollable-list-author">Colleen Hoover</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.30
-            </div>
-
-            <div class="ratings-value ratings-value-index">3.4M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/the-lightning-thief" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-lightning-thief_360px_1747141714.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-lightning-thief_360px_1747141714.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_the-lightning-thief_360px_1747141714.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-lightning-thief_360px_1747141714.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-lightning-thief_360px_1747141714.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_the-lightning-thief_360px_1747141714.jpg"
-              alt="The Lightning Thief Summary"
-              loading="lazy"
-              data-id="2483020"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">The Lightning Thief</div>
-          <div class="scrollable-list-author">Rick Riordan</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.31
-            </div>
-
-            <div class="ratings-value ratings-value-index">3.2M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/fourth-wing" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_fourth-wing_360px_1747136363.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_fourth-wing_360px_1747136363.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_fourth-wing_360px_1747136363.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_fourth-wing_360px_1747136363.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_fourth-wing_360px_1747136363.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_fourth-wing_360px_1747136363.jpg"
-              alt="Fourth Wing Summary"
-              loading="lazy"
-              data-id="2489429"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">Fourth Wing</div>
-          <div class="scrollable-list-author">Rebecca Yarros</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.58
-            </div>
-
-            <div class="ratings-value ratings-value-index">2.9M+</div>
-          </div>
-
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/the-silent-patient" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-silent-patient_360px_1747136822.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-silent-patient_360px_1747136822.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_the-silent-patient_360px_1747136822.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-silent-patient_360px_1747136822.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-silent-patient_360px_1747136822.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_the-silent-patient_360px_1747136822.jpg"
-              alt="The Silent Patient Summary"
-              loading="lazy"
-              data-id="2485249"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">The Silent Patient</div>
-          <div class="scrollable-list-author">Alex Michaelides</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.17
-            </div>
-
-            <div class="ratings-value ratings-value-index">2.8M+</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/a-court-of-mist-and-fury" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-mist-and-fury_360px_1747139391.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-mist-and-fury_360px_1747139391.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_a-court-of-mist-and-fury_360px_1747139391.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-mist-and-fury_360px_1747139391.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_a-court-of-mist-and-fury_360px_1747139391.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_a-court-of-mist-and-fury_360px_1747139391.jpg"
-              alt="A Court of Mist and Fury Summary"
-              loading="lazy"
-              data-id="2499233"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">A Court of Mist and Fury</div>
-          <div class="scrollable-list-author">Sarah J. Maas</div>
-
-          <div class="scrollable-list-subtitle"></div>
-
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.64
-            </div>
-            <div class="ratings-value ratings-value-index">2.8M+</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/books/the-book-thief" class="scrollable-list-item">
-        <div class="scrollable-list-image-container">
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-book-thief_360px_1747142453.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-book-thief_360px_1747142453.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image-shadow"
-              src="https://files.sobrief.com/social/cover_the-book-thief_360px_1747142453.jpg"
-              alt=""
-              referrerpolicy="no-referrer"
-              loading="lazy"
-            />
-          </picture>
-          <picture>
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-book-thief_360px_1747142453.webp
-              "
-              type="image/webp"
-            />
-            <source
-              srcset="
-                https://files.sobrief.com/social/cover_the-book-thief_360px_1747142453.jpg
-              "
-              type="image/jpeg"
-            />
-            <img
-              class="scrollable-list-image"
-              src="https://files.sobrief.com/social/cover_the-book-thief_360px_1747142453.jpg"
-              alt="The Book Thief Summary"
-              loading="lazy"
-              data-id="2483032"
-            />
-          </picture>
-        </div>
-
-        <div class="scrollable-list-info">
-          <div class="scrollable-list-title">The Book Thief</div>
-          <div class="scrollable-list-author">Markus Zusak</div>
-
-          <div class="scrollable-list-subtitle"></div>
-          <div class="rating-stars scrollable-list-rating">
-            <div class="rating-star" style="margin-right: 5px"></div>
-            <div
-              class="rating-value"
-              style="padding-left: 0px; padding-right: 12px; padding-right: 2px"
-            >
-              4.39
-            </div>
-            <div class="ratings-value ratings-value-index">2.7M+</div>
-          </div>
-          <div class="immersive-badge">
-            <img
-              src="https://files.sobrief.com/public/icon-music.png"
-              class="immersive-badge-icon"
-            />
-            <span>Immersive</span>
-          </div>
-        </div>
-      </a>
-      <a href="/booktok-books" class="scrollable-list-more-arrow">
-        <div class="scrollable-list-more-chevron"></div>
-      </a>
     </div>
+
+    <div class="content-container">
+      <div class="section-header">
+        <h2 id="displayTitle">Recommended Books</h2>
+        <span id="resultCount" style="color: #666; font-size: 14px;"></span>
+      </div>
+
+      <div class="book-grid" id="bookDisplay">
+        </div>
+    </div>
+
+    <script>
+      let allBooks = [];
+
+      // โหลดข้อมูลจากไฟล์ CSV
+      async function fetchBooks() {
+        try {
+          const response = await fetch('books.csv');
+          const data = await response.text();
+          const rows = data.split('\n').slice(1); // ข้ามหัวตาราง
+
+          allBooks = rows.map(row => {
+            const cols = row.split(',');
+            if (cols.length >= 2) {
+              return {
+                title: cols[0].trim(),
+                author: cols[1].trim(),
+                rating: cols[2]?.trim() || "0",
+                img: cols[3]?.trim() || "https://via.placeholder.com/200x300?text=No+Cover"
+              };
+            }
+            return null;
+          }).filter(b => b !== null);
+
+          displayBooks(allBooks);
+        } catch (error) {
+          console.error("Error loading CSV:", error);
+          document.getElementById('bookDisplay').innerHTML = "<p>กรุณารันผ่าน Live Server เพื่อโหลดข้อมูล</p>";
+        }
+      }
+
+      // แสดงผลหนังสือใน Grid
+      function displayBooks(books) {
+        const container = document.getElementById('bookDisplay');
+        container.innerHTML = '';
+        
+        books.forEach(book => {
+          container.innerHTML += `
+            <div class="book-card">
+              <div class="thumbnail">
+                <img src="${book.img}" onerror="this.src='https://via.placeholder.com/200x300?text=Book'">
+              </div>
+              <div class="book-info">
+                <h3 class="book-title">${book.title}</h3>
+                <p class="book-author">${book.author}</p>
+                <p class="book-stats">Rating: ${book.rating}</p>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      // ฟังก์ชันค้นหา
+      function searchBooks() {
+        const term = document.getElementById('searchInput').value.toLowerCase();
+        const filtered = allBooks.filter(book => 
+          book.title.toLowerCase().includes(term) || 
+          book.author.toLowerCase().includes(term)
+        );
+        
+        displayBooks(filtered);
+        document.getElementById('displayTitle').innerText = term ? `Search Results` : "Recommended Books";
+        document.getElementById('resultCount').innerText = term ? `(${filtered.length} found)` : "";
+      }
+
+      function login() { window.location.href = "../loginpage/index.html"; }
+      window.onload = fetchBooks;
+    </script>
   </body>
 </html>
-
-<div id="footer" class="footer">
-  <div class="wrap-inner">
-    <a href="/pricing" id="footer_pricing_link">Pricing</a>
-    <span id="footer_pricing_bullet">•</span>
-    <a href="/terms">Terms<span> of Service</span></a> <span>•</span>
-    <a href="/privacy">Privacy<span> Policy</span></a> <span>•</span>
-    <a href="/refund-policy">7-Day<span> Refund Policy</span></a> <span>•</span>
-    <a href="/dmca">DMCA</a> <span>•</span>
-    <a href="/affiliate" id="footer_affiliate_link">Affiliate</a>
-    <span id="footer_affiliate_bullet">•</span
-    ><a href="https://x.com/automationism" target="_blank">Twitter</a>
-    <span>•</span>
-    <a
-      href=""
-      onclick="
-        showIntercom();
-        return false;
-      "
-      >Support</a
-    ><span>•</span>
-
-    <div class="app-download-container app-download-container-footer">
-      <div
-        class="app-store-button"
-        id="footer_ios_button"
-        style="display: none"
-      >
-        <a
-          href="https://apps.apple.com/us/app/sobrief-book-summaries/id6723865613"
-          target="_blank"
-          onclick="logEvent('download_ios_click')"
-          style="margin-right: 0px"
-          aria-label="Download on the App Store"
-          ><img
-            src="https://files.sobrief.com/public/app-store-button.png"
-            loading="lazy"
-            alt="Download on the App Store"
-        /></a>
-      </div>
-
-      <div
-        class="app-store-button"
-        id="footer_android_button"
-        style="display: flex"
-      >
-        <a
-          href="https://play.google.com/store/apps/details?id=com.sobrief.android"
-          target="_blank"
-          onclick="logEvent('download_android_click')"
-          style="margin-right: 0px"
-          aria-label="Get it on Google Play"
-          ><img
-            src="https://files.sobrief.com/public/play-store-button.png"
-            loading="lazy"
-            alt="Get it on Google Play"
-        /></a>
-      </div>
-
-      <div class="app-qr-code" id="footer_ios_qr" style="display: none">
-        <img
-          src="https://files.sobrief.com/public/app-store-qr-code.png"
-          loading="lazy"
-          alt="App Store QR Code"
-        />
-      </div>
-
-      <div class="app-qr-code" id="footer_android_qr" style="display: flex">
-        <img
-          src="https://files.sobrief.com/public/play-store-qr-code.png"
-          loading="lazy"
-          alt="Google Play QR Code"
-        />
-      </div>
-    </div>
-  </div>
-</div>

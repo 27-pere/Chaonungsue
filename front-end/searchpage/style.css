@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #111; /* สีดำเข้มแบบ Netflix */
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background 0.3s;
+}
+
+.nav-left { display: flex; align-items: center; }
+.logo { color: #E50914; font-size: 24px; margin-right: 25px; font-weight: bold; }
+
+.navbar ul { display: flex; list-style: none; }
+.navbar ul li a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+.navbar ul li a:hover, .navbar ul li a.active { color: white; }
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-right .icon { font-size: 20px; cursor: pointer; }
+.login-btn {
+  background-color: #E50914;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  background: linear-gradient(to right, #111 10%, transparent 60%),
+              url('https://images.pexels.com/photos/22129776/pexels-photo-22129776.jpeg') center/cover;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.hero-content { max-width: 500px; }
+.hero-title { font-size: 50px; margin-bottom: 20px; }
+.hero-description { font-size: 18px; line-height: 1.4; margin-bottom: 20px; }
+
+.hero-buttons button {
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.play-btn { background-color: white; color: black; }
+.play-btn:hover { background-color: rgba(255,255,255,0.8); }
+.info-btn { background-color: rgba(109, 109, 110, 0.7); color: white; }
+
+/* Book Rows */
+.main-container { padding: 20px 0 50px 50px; margin-top: -100px; }
+.row-title { font-size: 20px; margin-bottom: 10px; }
+
+.row-posters {
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 20px 0;
+  gap: 10px;
+}
+
+.row-posters::-webkit-scrollbar { display: none; } /* ซ่อน Scrollbar */
+
+.book-card {
+  position: relative;
+  min-width: 200px;
+  transition: transform 450ms;
+  cursor: pointer;
+}
+
+.poster {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.book-card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  padding: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.book-card:hover .card-overlay { opacity: 1; }
