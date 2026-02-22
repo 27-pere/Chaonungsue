@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h2>Select a Book</h2>
+
+    {% for b in books %}
+        <form action="/like" method="POST">
+            <input type="hidden" name="book" value="{{ b }}">
+            <button type="submit">{{ b }}</button>
+        </form>
+    {% endfor %}
+
+</body>
+</html>
