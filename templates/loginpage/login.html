@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-container sign-in">
-            <form id="signinForm"> 
+            <form action="/login" method="POST"> 
                 <h1>Sign In</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -41,8 +41,8 @@
                 </div>
                 <span>or use your email password</span>
       
-                <input type="email" id="signinEmail" placeholder="Email" required>
-                <input type="password" id="signinPassword" placeholder="Password" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
       
                 <a href="#">Forget Your Password?</a>
                 <button type="submit" id="btnSignin">Sign In</button>
@@ -66,11 +66,7 @@
     </div>
 
     <script>
-        // ******************************************************
-        // URL ของ Google Apps Script
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw0HXbCaUjhV1nIw5x3MBZbosdOelH4isIgb2Cht7hU8lCSNtBbUnRvXzKHYx868FI4zg/exec';
-        // ******************************************************
-
+        
         const container = document.getElementById('container');
         const registerBtn = document.getElementById('register');
         const loginBtn = document.getElementById('login');
@@ -84,97 +80,9 @@
             container.classList.remove("active");
         });
 
-        // ---------------------------------------------------------
-        // 1. ส่วนจัดการ Sign Up (สมัครสมาชิก)
-        // ---------------------------------------------------------
-        const signupForm = document.getElementById('signupForm');
-        const signupBtn = document.getElementById('btnLoading');
+    //    const signupBtn = document.getElementById('btnLoading');
+    //    const signinBtn = document.getElementById('btnSignin');
 
-        signupForm.addEventListener('submit', e => {
-            e.preventDefault(); 
-            
-            signupBtn.innerText = "Saving...";
-            signupBtn.disabled = true;
-
-            const formData = new FormData(signupForm);
-            
-            // สร้างข้อมูลส่งไป (ระบุ action: 'register')
-            const data = {
-              action: 'register',
-              name: formData.get('name'),
-              email: formData.get('email'),
-              password: formData.get('password')
-            };
-
-            fetch(scriptURL, {
-                method: 'POST',
-                body: JSON.stringify(data),
-                mode: 'no-cors'
-            })
-            .then(() => {
-                alert("สมัครสมาชิกเรียบร้อย!");
-                signupForm.reset();
-                signupBtn.innerText = "Sign Up";
-                signupBtn.disabled = false;
-                container.classList.remove("active"); // สลับไปหน้า Login
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                alert("เกิดข้อผิดพลาดในการสมัคร");
-                signupBtn.innerText = "Sign Up";
-                signupBtn.disabled = false;
-            });
-        });
-
-        // ---------------------------------------------------------
-        // 2. ส่วนจัดการ Sign In (เข้าสู่ระบบ)
-        // ---------------------------------------------------------
-        const signinForm = document.getElementById('signinForm');
-        const signinBtn = document.getElementById('btnSignin');
-
-        signinForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            signinBtn.innerText = "Checking...";
-            signinBtn.disabled = true;
-
-            const emailInput = document.getElementById('signinEmail').value;
-            const passwordInput = document.getElementById('signinPassword').value;
-
-            // ดึงข้อมูลมาเช็ค
-            fetch(scriptURL)
-            .then(response => response.json())
-            .then(users => {
-                console.log("Users:", users); // ดูข้อมูลใน Console
-                
-                // ค้นหา User
-                const user = users.find(u => 
-                    String(u.email).trim() === String(emailInput).trim() && 
-                    String(u.password).trim() === String(passwordInput).trim()
-                );
-
-                if (user) {
-                    alert("Login สำเร็จ! ยินดีต้อนรับ " + user.name);
-                    
-                    // จำข้อมูลไว้ใช้หน้าถัดไป
-                    localStorage.setItem('userEmail', user.email); 
-                    localStorage.setItem('currentUser', user.name);
-                    
-                    window.location.href = "../askpage/ask.html";
-                } else {
-                    // ถ้าไม่เจอ
-                    alert("อีเมลหรือรหัสผ่านไม่ถูกต้อง!");
-                    signinBtn.innerText = "Sign In";
-                    signinBtn.disabled = false;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert("เกิดข้อผิดพลาด: ดึงข้อมูลไม่ได้");
-                signinBtn.innerText = "Sign In";
-                signinBtn.disabled = false;
-            });
-        });
     </script>
 </body>
 </html>
