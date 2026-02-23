@@ -11,24 +11,29 @@ category_matrix = pd.get_dummies(books['category'].str.split("|").apply(pd.Serie
 similarity = cosine_similarity(category_matrix)
 
 def get_recommendations(category, top_n=2):
-    print(books["category"] == category)
-    idx = books[books["category"] == category].index[0]
+    matched = books[books["category"] == category]
+
+    if matched.empty:
+        return ["No similar books found."]
+
+    idx = matched.index[0]
     similarity_scores = list(enumerate(similarity[idx]))
     similarity_scores = sorted(similarity_scores, key=lambda x: x[1], reverse=True)
     books_indices = [i[0] for i in similarity_scores[1:top_n+1]]
+
     return books["title"].iloc[books_indices].tolist()
 
-def get_recommendations_by_category(category, top_n=5):
+def get_recommendations_by_category(category, top_n=8):
     filtered_books = books[books["category"].str.contains(category, case=False, na=False)]
 
     if filtered_books.empty:
-        return ["No books found in this category."]
+        return []
 
-    return filtered_books["title"].head(top_n).tolist()
+    return filtered_books.head(top_n).to_dict(orient="records")
 
 
 app = Flask(__name__)
-app.secret_key
+app.secret_key = "supersecretkey"
 @app.route("/")
 def login():
     return render_template("loginpage/login.html")
@@ -60,7 +65,7 @@ def like():
 def recommend():
     category = request.form["category"]
     rec = get_recommendations_by_category(category)
-    return render_template("recommend.html", rec=rec)
+    return render_template("homepage/home.html", rec=rec)
 
 
 if __name__ == "__main__":
