@@ -1,54 +1,54 @@
-title,category,tags,rating
-451 Fahrenheit,Dystopian,"censorship, classic, sci-fi, future",9.1
-A Court of Mist and Fury,Fantasy Romance,"fae, magic, romance, adventure",9.4
-And Then There Were None,Mystery,"detective, thriller, isolation, classic",9.3
-Atomic Habits,Self-Help,"productivity, psychology, habits, growth",9.2
-Bible,Religious Text,"spirituality, history, faith, ancient",8.5
-Catcher in the Rye,Classic Literature,"youth, alienation, rebellion, american",7.9
-Cosmos,Science,"astronomy, physics, philosophy, space",9.6
-Fourth Wing,Fantasy Romance,"dragons, war, magic, academy",9.1
-Good Vibes Good Life,Self-Help,"wellness, positivity, mindset",7.8
-Harry Potter (8),Fantasy,"magic, wizards, coming-of-age, adventure",9.0
-Heated Rivalry,Romance,"sports, rivals-to-lovers, hockey, lgbtq+",9.2
-His Honey,Romance,"contemporary, sweet, relationship",7.5
-Howl's Moving Castle,Fantasy,"magic, whimsy, adventure, studio-ghibli",9.3
-Human Acts,Historical Fiction,"korean, tragedy, political, uprising",9.0
-Icebreaker,Romance,"sports, college, figure-skating, hockey",8.2
-Ikigai,Self-Help,"wellness, japanese, longevity, purpose",8.4
-Iron Flame,Fantasy Romance,"dragons, war, rebellion, magic",8.8
-Klara and the Sun,Science Fiction,"ai, robots, dystopian, loneliness",8.6
-Life of Pi,Fiction,"adventure, survival, spirituality, ocean",8.9
-Little Prince,Classic Literature,"philosophy, fable, childhood, french",9.7
-Man’s Search for Meaning,Psychology,"holocaust, survival, philosophy, purpose",9.8
-Mockingjay,Dystopian,"revolution, war, rebellion, young-adult",8.3
-Norwegian Wood,Literary Fiction,"romance, nostalgia, melancholy, japanese",8.7
-On Earth We’re Briefly Gorgeous,Contemporary Fiction,"poetry, family, lgbtq+, immigrant",8.9
-Onyx Storm,Fantasy Romance,"dragons, empyrean, adventure, magic",9.0
-Physics (Serway & Jewett),Academic,"science, textbook, mechanics, engineering",8.5
-Project Hail Mary,Science Fiction,"space, science, problem-solving, aliens",9.5
-Red White & Royal Blue,Romance,"politics, lgbtq+, royal, contemporary",8.9
-Sapiens,Non-Fiction,"history, anthropology, evolution, human",9.2
-Steal Like an Artist,Self-Help,"creativity, art, inspiration, productivity",8.6
-The Alchemist,Fantasy/Fable,"journey, spiritual, destiny, adventure",8.8
-The Book Thief,Historical Fiction,"wwii, narrator-death, german, survival",9.4
-The Boy the Mole the Fox and the Horse,Graphic Novel,"kindness, philosophy, art, friendship",9.5
-The Cat Who Saved Books,Fantasy,"japanese, books, magic, heartwarming",8.3
-The Forest,Fiction,"nature, mystery, atmosphere",7.9
-The Giving Tree,Children's Literature,"classic, sacrifice, nature, fable",9.0
-The Great Gatsby,Classic Literature,"1920s, tragedy, american-dream",9.2
-The Housemaid,Thriller,"mystery, suspense, twist, domestic",8.5
-The Let Them Theory,Self-Help,"mindset, psychology, relationships",8.1
-The Man Called Ove,Contemporary Fiction,"swedish, heartwarming, elderly, life",9.3
-The Martian,Science Fiction,"survival, space, science, mars",9.4
-The Metamorphosis,Classic Literature,"absurdist, surreal, existential, kafka",8.8
-The Midnight Library,Fantasy/Fiction,"regret, life-choices, philosophy, mental-health",8.2
-The Mountain Is You,Self-Help,"self-sabotage, growth, healing",8.4
-The Old Man and the Sea,Classic Literature,"nature, struggle, fishing, survival",8.6
-The Prophet,Poetry,"philosophy, spiritual, wisdom, classic",9.1
-The Stranger,Classic Literature,"existentialism, absurdist, french, philosophical",8.7
-The Things You Can See Only When You Slow Down,Self-Help,"mindfulness, spiritual, korean, peace",8.9
-The Vegetarian,Literary Fiction,"korean, psychological, body, protest",8.1
-Watership Down,Fantasy,"animals, adventure, epic, classic",9.2
-When Breath Becomes Air,Memoir,"medicine, mortality, cancer, philosophy",9.6
-White Nights,Classic Literature,"romance, dostoevsky, russian, loneliness",8.9
-Yellowface,Thriller/Fiction,"satire, publishing, racism, drama",8.6
+title,category,tags,rating,img
+451 Fahrenheit,Dystopian,"censorship, classic, sci-fi, future",9.1,https://storage.naiin.com/system/application/bookstore/resource/product/202409/622400/1000275167_front_XXXL.jpg
+A Court of Mist and Fury,Fantasy Romance,"fae, magic, romance, adventure",9.4,https://www.asiabooks.com/media/catalog/product/cache/0226f25120addd0e6de58853717507ef/9/7/9781526617163.jpg
+And Then There Were None,Mystery,"detective, thriller, isolation, classic",9.3,https://storage.naiin.com/system/application/bookstore/resource/product/202310/591945/1000265526_front_XXL.jpg
+Atomic Habits,Self-Help,"productivity, psychology, habits, growth",9.2,https://storage.naiin.com/system/application/bookstore/resource/product/202007/508699/1000233967_front_XXL.jpg
+Bible,Religious Text,"spirituality, history, faith, ancient",8.5,https://www.scross.co.za/wp-content/uploads/2018/09/Leather-bound-bible.jpg
+Catcher in the Rye,Classic Literature,"youth, alienation, rebellion, american",7.9,https://storage.naiin.com/system/application/bookstore/resource/product/202506/662416/1000282929_front_XXL.jpg
+Cosmos,Science,"astronomy, physics, philosophy, space",9.6,https://storage.naiin.com/system/application/bookstore/resource/product/202303/575746/1000259925_front_XXL.jpg
+Fourth Wing,Fantasy Romance,"dragons, war, magic, academy",9.1,https://storage.naiin.com/system/application/bookstore/resource/product/202410/625561/1000276126_front_XXL.jpg
+Good Vibes Good Life,Self-Help,"wellness, positivity, mindset",7.8,https://storage.naiin.com/system/application/bookstore/resource/product/202109/533411/1000243428_front_XXL.jpg
+Harry Potter (8),Fantasy,"magic, wizards, coming-of-age, adventure",9.0,https://storage.naiin.com/system/application/bookstore/resource/product/201608/198681/1000188716_front_XXL.jpg
+Heated Rivalry,Romance,"sports, rivals-to-lovers, hockey, lgbtq+",9.2,https://www.asiabooks.com/media/catalog/product/cache/a5ac216be58c0cbce1cb04612ece96dc/9/7/9781335534637.jpg
+His Honey,Romance,"contemporary, sweet, relationship",7.5,https://storage.naiin.com/system/application/bookstore/resource/product/202507/665704/1000283460_front_XXL.jpg
+Howl's Moving Castle,Fantasy,"magic, whimsy, adventure, studio-ghibli",9.3,https://www.asiabooks.com/media/catalog/product/cache/a5ac216be58c0cbce1cb04612ece96dc/9/7/9780007299263.jpg
+Human Acts,Historical Fiction,"korean, tragedy, political, uprising",9.0,https://storage.naiin.com/system/application/bookstore/resource/product/202504/643682/1000281487_front_XXL.jpg
+Icebreaker,Romance,"sports, college, figure-skating, hockey",8.2,https://cdn-local.mebmarket.com/meb/server1/350439/Thumbnail/book_detail_large.gif?2
+Ikigai,Self-Help,"wellness, japanese, longevity, purpose",8.4,https://storage.naiin.com/system/application/bookstore/resource/product/202206/550902/6000061145_front_XXL.jpg
+Iron Flame,Fantasy Romance,"dragons, war, rebellion, magic",8.8,https://storage.naiin.com/system/application/bookstore/resource/product/202506/662305/1000282867_front_XXL.jpg
+Klara and the Sun,Science Fiction,"ai, robots, dystopian, loneliness",8.6,https://storage.naiin.com/system/application/bookstore/resource/product/202111/537266/1000245168_front_XXL.jpg
+Life of Pi,Fiction,"adventure, survival, spirituality, ocean",8.9,https://www.asiabooks.com/media/catalog/product/cache/a5ac216be58c0cbce1cb04612ece96dc/9/7/9781786891686.jpg
+Little Prince,Classic Literature,"philosophy, fable, childhood, french",9.7,https://storage.naiin.com/system/application/bookstore/resource/product/202107/531368/6000050907_front_XXL.jpg
+Man’s Search for Meaning,Psychology,"holocaust, survival, philosophy, purpose",9.8,https://storage.naiin.com/system/application/bookstore/resource/product/202207/553401/1000251434_front_XXL.jpg
+Mockingjay,Dystopian,"revolution, war, rebellion, young-adult",8.3,https://www.asiabooks.com/media/catalog/product/cache/a5ac216be58c0cbce1cb04612ece96dc/9/7/9781407132105c_1.png
+Norwegian Wood,Literary Fiction,"romance, nostalgia, melancholy, japanese",8.7,https://api.chulabook.com/images/pid-151166.jpg
+On Earth We’re Briefly Gorgeous,Contemporary Fiction,"poetry, family, lgbtq+, immigrant",8.9,https://storage.naiin.com/system/application/bookstore/resource/product/202303/575056/1000259778_front_XXXL.jpg
+Onyx Storm,Fantasy Romance,"dragons, empyrean, adventure, magic",9.0,https://api.chulabook.com/images/pid-218995.jpg
+Physics (Serway & Jewett),Academic,"science, textbook, mechanics, engineering",8.5,https://api.chulabook.com/images/pid-26891.JPG
+Project Hail Mary,Science Fiction,"space, science, problem-solving, aliens",9.5,https://api.chulabook.com/images/pid-239497.JPG
+Red White & Royal Blue,Romance,"politics, lgbtq+, royal, contemporary",8.9,https://api.chulabook.com/images/pid-184298.JPG
+Sapiens,Non-Fiction,"history, anthropology, evolution, human",9.2,https://api.chulabook.com/images/pid-5025.jpg
+Steal Like an Artist,Self-Help,"creativity, art, inspiration, productivity",8.6,https://api.chulabook.com/images/pid-217337.JPG
+The Alchemist,Fantasy/Fable,"journey, spiritual, destiny, adventure",8.8,https://api.chulabook.com/images/pid-227719.JPG
+The Book Thief,Historical Fiction,"wwii, narrator-death, german, survival",9.4,https://api.chulabook.com/images/pid-238905.JPG
+The Boy the Mole the Fox and the Horse,Graphic Novel,"kindness, philosophy, art, friendship",9.5,https://www.chulabook.com/literature/169778
+The Cat Who Saved Books,Fantasy,"japanese, books, magic, heartwarming",8.3,https://api.chulabook.com/images/pid-105692.jpg
+The Forest,Fiction,"nature, mystery, atmosphere",7.9,https://api.chulabook.com/images/pid-195904.JPG
+The Giving Tree,Children's Literature,"classic, sacrifice, nature, fable",9.0,https://api.chulabook.com/images/pid-188776.JPG
+The Great Gatsby,Classic Literature,"1920s, tragedy, american-dream",9.2,https://storage.naiin.com/system/application/bookstore/resource/product/202107/531353/6000050911_front_XXL.jpg
+The Housemaid,Thriller,"mystery, suspense, twist, domestic",8.5,https://api.chulabook.com/images/pid-206114.JPG
+The Let Them Theory,Self-Help,"mindset, psychology, relationships",8.1,https://api.chulabook.com/images/pid-220684.JPG
+The Man Called Ove,Contemporary Fiction,"swedish, heartwarming, elderly, life",9.3,https://api.chulabook.com/images/pid-210019.jpg
+The Martian,Science Fiction,"survival, space, science, mars",9.4,https://image.makewebcdn.com/makeweb/m_1920x0/Z9S9L5BrM/buinessss/245_%E0%B8%9B%E0%B8%81%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2_the_martian.jpg?v=202405291424
+The Metamorphosis,Classic Literature,"absurdist, surreal, existential, kafka",8.8,https://api.chulabook.com/images/pid-204031.JPG
+The Midnight Library,Fantasy/Fiction,"regret, life-choices, philosophy, mental-health",8.2,https://api.chulabook.com/images/pid-121896.png
+The Mountain Is You,Self-Help,"self-sabotage, growth, healing",8.4,https://api.chulabook.com/images/pid-169667.jpg
+The Old Man and the Sea,Classic Literature,"nature, struggle, fishing, survival",8.6,https://api.chulabook.com/images/pid-204032.JPG
+The Prophet,Poetry,"philosophy, spiritual, wisdom, classic",9.1,https://api.chulabook.com/images/pid-171192.jpg
+The Stranger,Classic Literature,"existentialism, absurdist, french, philosophical",8.7,https://1568886761.rsc.cdn77.org/books/36832/Thumbnail/large.gif?2
+The Things You Can See Only When You Slow Down,Self-Help,"mindfulness, spiritual, korean, peace",8.9,https://api.chulabook.com/images/pid-228391.JPG
+The Vegetarian,Literary Fiction,"korean, psychological, body, protest",8.1,https://api.chulabook.com/images/pid-217729.JPG
+Watership Down,Fantasy,"animals, adventure, epic, classic",9.2,https://storage.naiin.com/system/application/bookstore/resource/product/202108/531725/1000242697_front_XXL.jpg
+When Breath Becomes Air,Memoir,"medicine, mortality, cancer, philosophy",9.6,https://api.chulabook.com/images/pid-176578.jpg
+White Nights,Classic Literature,"romance, dostoevsky, russian, loneliness",8.9,https://api.chulabook.com/images/pid-145917.jpg
+Yellowface,Thriller/Fiction,"satire, publishing, racism, drama",8.6,https://api.chulabook.com/images/pid-198919.JPG
