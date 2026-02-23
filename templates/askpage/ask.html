@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,9 +10,15 @@
 </head>
 <body>
 
-  <div class="card">
-    <h2>📚 Favorite Book Category</h2>
-    <p>Choose a category you like:</p>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='askpage/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <h2>📚 Favorite Book Category</h2>
+      <p>Choose a category you like:</p>
 
     <form action="{{ url_for('recommend') }}" method="POST">
       <button type="submit" name="category" value="Science Fiction">
