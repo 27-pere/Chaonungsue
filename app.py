@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+from flask import redirect, url_for
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 # from ml.recommender import get_recommendations
@@ -28,11 +28,26 @@ def get_recommendations_by_category(category, top_n=5):
 
 
 app = Flask(__name__)
-
+app.secret_key
 @app.route("/")
-def home():
-    books = ["book1", "book2", "book3"]
-    return render_template("askpage/ask.html", books=books)
+def login():
+    return render_template("loginpage/login.html")
+
+@app.route("/signup", methods=["POST"])
+def signup():
+    name = request.form["name"]
+    email = request.form["email"]
+    password = request.form["password"]
+
+    # For now just print (later you save to database)
+    print(name, email, password)
+
+    # Redirect to category page after signup
+    return redirect(url_for("category_page"))
+
+@app.route("/category")
+def category_page():
+    return render_template("askpage/ask.html")
 
 @app.route("/like", methods=["POST"])
 def like():
@@ -45,7 +60,7 @@ def like():
 def recommend():
     category = request.form["category"]
     rec = get_recommendations_by_category(category)
-    return render_template("homepage/home.html", rec=rec)
+    return render_template("recommend.html", rec=rec)
 
 
 if __name__ == "__main__":
