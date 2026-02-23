@@ -21,15 +21,14 @@
           placeholder="Enter book name"
           onkeyup="searchBooks()"
         />
-        <i class="bx bx-search"></i>
       </div>
 
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="#">Skills</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
-      <button class="hire-btn" onclick="login()">Login</button>
+      <button class="hire-btn" onclick="goToLogin()">Login</button>
     </div>
 
     <div id="hero-section">
@@ -54,18 +53,22 @@
     </div>
 
     <script>
-      // โหลดข้อมูลจากไฟล์ CSV
       let allBooks = [];
 
+      // FIX 1: Fetch from the STATIC folder
       async function fetchBooks() {
         try {
-          const response = await fetch("books.csv");
+          const response = await fetch("/static/books.csv");
+          if (!response.ok)
+            throw new Error("Could not find books.csv in static folder");
+
           const data = await response.text();
           const rows = data.split(/\r?\n/).filter((row) => row.trim() !== "");
           const rowsWithoutHeader = rows.slice(1);
 
           allBooks = rowsWithoutHeader
             .map((row) => {
+              // This regex handles commas inside quotes in CSVs
               const cols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
               if (cols && cols.length >= 5) {
                 return {
@@ -73,27 +76,24 @@
                   category: cols[1].trim().replace(/"/g, ""),
                   tags: cols[2].replace(/"/g, "").trim(),
                   rating: cols[3].trim().replace(/"/g, ""),
-                  img:
-                    cols[4]?.trim().replace(/"/g, "") ||
-                    "https://via.placeholder.com/200x300?text=No+Cover",
+                  img: cols[4]?.trim().replace(/"/g, ""),
                 };
               }
               return null;
             })
             .filter((b) => b !== null);
 
-          createFilterButtons(); // Generate the genre buttons
-          displayBooks(allBooks); // Show all books initially
+          createFilterButtons();
+          displayBooks(allBooks);
         } catch (error) {
           console.error("Error loading CSV:", error);
+          document.getElementById("bookDisplay").innerHTML =
+            "<p>Error loading book data. Please check console.</p>";
         }
       }
 
-      // FIX: Generate dynamic buttons based on categories in CSV
       function createFilterButtons() {
         const filterContainer = document.getElementById("filterButtons");
-
-        // Get unique categories and add 'All'
         const categories = [
           "All",
           ...new Set(allBooks.map((book) => book.category)),
@@ -101,80 +101,72 @@
 
         filterContainer.innerHTML = categories
           .map(
-            (cat) => `
-    <button class="filter-btn" onclick="filterByCategory('${cat}')">${cat}</button>
-  `,
+            (cat) =>
+              `<button class="filter-btn" onclick="filterByCategory('${cat}')">${cat}</button>`,
           )
           .join("");
       }
 
-      // FIX: Filter function
       function filterByCategory(category) {
-        if (category === "All") {
-          displayBooks(allBooks);
-        } else {
-          const filtered = allBooks.filter(
-            (book) => book.category === category,
-          );
-          displayBooks(filtered);
-        }
-
-        // Update title to show what we are looking at
+        const filtered =
+          category === "All"
+            ? allBooks
+            : allBooks.filter((b) => b.category === category);
+        displayBooks(filtered);
         document.getElementById("displayTitle").innerText =
           category === "All" ? "Recommended Books" : `Genre: ${category}`;
       }
 
       function displayBooks(books) {
         const container = document.getElementById("bookDisplay");
-        const htmlContent = books
+        container.innerHTML = books
           .map((book) => {
             const tagList = book.tags.split(",").map((t) => t.trim());
+
+            // FIX 2: Handle image paths correctly
+            // If your CSV has image names like "book1.jpg", use /static/images/
+            // If your CSV has full URLs, just use book.img
+            const imageSrc = book.img.startsWith("http")
+              ? book.img
+              : `/static/images/${book.img}`;
+
             return `
-      <div class="book-card">
-        <div class="thumbnail">
-          <img src="${book.img}" alt="${book.title}" onerror="this.src='https://via.placeholder.com/200x300?text=No+Cover'">
-        </div>
-        <div class="book-info">
-          <h3 class="book-title">${book.title}</h3>
-          <p class="book-category"><strong>Category:</strong> ${book.category}</p>
-          <div class="book-tags">
-            <ul>${tagList.map((tag) => `<li>${tag}</li>`).join("")}</ul>
-          </div>
-          <p class="book-stats"><strong>Rating:</strong> ${book.rating}</p>
-        </div>
-      </div>
-    `;
+              <div class="book-card">
+                <div class="thumbnail">
+                  <img src="${imageSrc}" alt="${book.title}" onerror="this.src='https://via.placeholder.com/200x300?text=No+Cover'">
+                </div>
+                <div class="book-info">
+                  <h3 class="book-title">${book.title}</h3>
+                  <p class="book-category"><strong>Category:</strong> ${book.category}</p>
+                  <div class="book-tags">
+                    <ul>${tagList.map((tag) => `<li>${tag}</li>`).join("")}</ul>
+                  </div>
+                  <p class="book-stats"><strong>Rating:</strong> ${book.rating}</p>
+                </div>
+              </div>`;
           })
           .join("");
-        container.innerHTML = htmlContent;
       }
-
-      window.onload = fetchBooks;
 
       function searchBooks() {
         const term = document.getElementById("searchInput").value.toLowerCase();
         const filtered = allBooks.filter(
           (book) =>
             book.title.toLowerCase().includes(term) ||
-            book.category.toLowerCase().includes(term) ||
-            book.tags.toLowerCase().includes(term),
+            book.category.toLowerCase().includes(term),
         );
-
         displayBooks(filtered);
-
-        const displayTitle = document.getElementById("displayTitle");
-        if (displayTitle) {
-          displayTitle.innerText = term
-            ? `Search Results`
-            : "Recommended Books";
-        }
+        document.getElementById("displayTitle").innerText = term
+          ? "Search Results"
+          : "Recommended Books";
       }
 
-      fetchBooks();
-
-      function login() {
-        window.location.href = "../loginpage/login.html";
+      // FIX 3: Correct Login Redirect
+      function goToLogin() {
+        window.location.href = "/";
       }
+
+      // Start the process
       window.onload = fetchBooks;
     </script>
   </body>

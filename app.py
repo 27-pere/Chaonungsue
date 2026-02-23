@@ -29,6 +29,7 @@ def get_recommendations_by_category(category, top_n=5):
 
 app = Flask(__name__)
 app.secret_key
+app.secret_key = 'some_random_secret_string'
 @app.route("/")
 def login():
     return render_template("loginpage/login.html")
