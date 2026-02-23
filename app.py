@@ -51,16 +51,23 @@ def category_page():
 
 @app.route("/like", methods=["POST"])
 def like():
-    book_id = request.form["book"]
-    rec = get_recommendations(book_id)
-
-    return render_template("homepage/home.html", rec=rec)
-
+    # Ensure 'book' matches the 'name' attribute in your ask.html <select> or <input>
+    selected_item = request.form.get("book") 
+    
+    try:
+        # If get_recommendations expects an index or exact category:
+        rec = get_recommendations(selected_item)
+        return render_template("homepage/home.html", rec=rec)
+    except Exception as e:
+        print(f"Error: {e}")
+        return "Could not find recommendations for that selection."
+    
 @app.route("/recommend", methods=["POST"])
 def recommend():
     category = request.form["category"]
     rec = get_recommendations_by_category(category)
-    return render_template("recommend.html", rec=rec)
+    # Change 'recommend.html' to 'homepage/home.html' if that's your target
+    return render_template("homepage/home.html", rec=rec)
 
 
 if __name__ == "__main__":

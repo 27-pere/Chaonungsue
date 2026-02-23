@@ -19,7 +19,7 @@
         <input
           type="text"
           id="searchInput"
-          placeholder="ค้นหาหนังสือหรือชื่อผู้เขียน..."
+          placeholder="Enter book name"
           onkeyup="searchBooks()"
         />
         <i class="bx bx-search"></i>
@@ -49,44 +49,33 @@
         <span id="resultCount" style="color: #666; font-size: 14px"></span>
       </div>
 
+      <div class="filter-container" id="filterButtons"></div>
+
       <div class="book-grid" id="bookDisplay"></div>
     </div>
 
     <script>
+      // โหลดข้อมูลจากไฟล์ CSV
       let allBooks = [];
 
-      // โหลดข้อมูลจากไฟล์ CSV
       async function fetchBooks() {
         try {
           const response = await fetch("books.csv");
           const data = await response.text();
-
           const rows = data.split(/\r?\n/).filter((row) => row.trim() !== "");
           const rowsWithoutHeader = rows.slice(1);
 
-          const allBooks = rowsWithoutHeader
+          allBooks = rowsWithoutHeader
             .map((row) => {
-              // Smart split to handle commas inside quotes
               const cols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
-
               if (cols && cols.length >= 5) {
-                // Clean the column data
-                const title = cols[0].trim().replace(/"/g, "");
-                const category = cols[1].trim().replace(/"/g, "");
-                const tags = cols[2].replace(/"/g, "").trim();
-                const rating = cols[3].trim().replace(/"/g, "");
-
-                // Prepare the image URL
-                const rawImg = cols[4]?.trim().replace(/"/g, "");
-
                 return {
-                  title: title,
-                  category: category,
-                  tags: tags,
-                  rating: rating,
-                  // If rawImg is null, undefined, or an empty string, use the placeholder
+                  title: cols[0].trim().replace(/"/g, ""),
+                  category: cols[1].trim().replace(/"/g, ""),
+                  tags: cols[2].replace(/"/g, "").trim(),
+                  rating: cols[3].trim().replace(/"/g, ""),
                   img:
-                    rawImg ||
+                    cols[4]?.trim().replace(/"/g, "") ||
                     "https://via.placeholder.com/200x300?text=No+Cover",
                 };
               }
@@ -94,34 +83,63 @@
             })
             .filter((b) => b !== null);
 
-          displayBooks(allBooks);
+          createFilterButtons(); // Generate the genre buttons
+          displayBooks(allBooks); // Show all books initially
         } catch (error) {
           console.error("Error loading CSV:", error);
         }
       }
 
+      // FIX: Generate dynamic buttons based on categories in CSV
+      function createFilterButtons() {
+        const filterContainer = document.getElementById("filterButtons");
+
+        // Get unique categories and add 'All'
+        const categories = [
+          "All",
+          ...new Set(allBooks.map((book) => book.category)),
+        ];
+
+        filterContainer.innerHTML = categories
+          .map(
+            (cat) => `
+    <button class="filter-btn" onclick="filterByCategory('${cat}')">${cat}</button>
+  `,
+          )
+          .join("");
+      }
+
+      // FIX: Filter function
+      function filterByCategory(category) {
+        if (category === "All") {
+          displayBooks(allBooks);
+        } else {
+          const filtered = allBooks.filter(
+            (book) => book.category === category,
+          );
+          displayBooks(filtered);
+        }
+
+        // Update title to show what we are looking at
+        document.getElementById("displayTitle").innerText =
+          category === "All" ? "Recommended Books" : `Genre: ${category}`;
+      }
+
       function displayBooks(books) {
         const container = document.getElementById("bookDisplay");
-
         const htmlContent = books
           .map((book) => {
             const tagList = book.tags.split(",").map((t) => t.trim());
-
             return `
       <div class="book-card">
         <div class="thumbnail">
-          <img src="${book.img}" 
-               alt="${book.title}" 
-               onerror="this.src='https://via.placeholder.com/200x300?text=Error+Loading'">
+          <img src="${book.img}" alt="${book.title}" onerror="this.src='https://via.placeholder.com/200x300?text=No+Cover'">
         </div>
         <div class="book-info">
           <h3 class="book-title">${book.title}</h3>
           <p class="book-category"><strong>Category:</strong> ${book.category}</p>
           <div class="book-tags">
-            <strong>Tags:</strong>
-            <ul>
-              ${tagList.map((tag) => `<li>${tag}</li>`).join("")}
-            </ul>
+            <ul>${tagList.map((tag) => `<li>${tag}</li>`).join("")}</ul>
           </div>
           <p class="book-stats"><strong>Rating:</strong> ${book.rating}</p>
         </div>
@@ -129,29 +147,31 @@
     `;
           })
           .join("");
-
         container.innerHTML = htmlContent;
       }
 
-      fetchBooks();
+      window.onload = fetchBooks;
 
-      // ฟังก์ชันค้นหา
       function searchBooks() {
         const term = document.getElementById("searchInput").value.toLowerCase();
         const filtered = allBooks.filter(
           (book) =>
             book.title.toLowerCase().includes(term) ||
-            book.author.toLowerCase().includes(term),
+            book.category.toLowerCase().includes(term) ||
+            book.tags.toLowerCase().includes(term),
         );
 
         displayBooks(filtered);
-        document.getElementById("displayTitle").innerText = term
-          ? `Search Results`
-          : "Recommended Books";
-        document.getElementById("resultCount").innerText = term
-          ? `(${filtered.length} found)`
-          : "";
+
+        const displayTitle = document.getElementById("displayTitle");
+        if (displayTitle) {
+          displayTitle.innerText = term
+            ? `Search Results`
+            : "Recommended Books";
+        }
       }
+
+      fetchBooks();
 
       function login() {
         window.location.href = "../loginpage/login.html";

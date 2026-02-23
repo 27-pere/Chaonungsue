@@ -1,84 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Category Generator</title>
-  
-  <link rel="stylesheet" 
-      href="{{ url_for('static', filename='askpage/style.css') }}">
-  
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Category Generator</title>
 
-  <div class="card">
-    <h2>📚 Favorite Book Category</h2>
-    <p>Choose a category you like:</p>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='askpage/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <h2>📚 Favorite Book Category</h2>
+      <p>Choose a category you like:</p>
 
-    <input type="button" name="category" value="Science Fiction" onclick="selectCategory(this)">
-    <input type="button" name="category" value="Mystery" onclick="selectCategory(this)">
-    <input type="button" name="category" value="Romance" onclick="selectCategory(this)">
-    <input type="button" name="category" value="Fantasy" onclick="selectCategory(this)">
+      <input
+        type="button"
+        name="category"
+        value="Science Fiction"
+        onclick="selectCategory(this)"
+      />
+      <input
+        type="button"
+        name="category"
+        value="Mystery"
+        onclick="selectCategory(this)"
+      />
+      <input
+        type="button"
+        name="category"
+        value="Romance"
+        onclick="selectCategory(this)"
+      />
+      <input
+        type="button"
+        name="category"
+        value="Fantasy"
+        onclick="selectCategory(this)"
+      />
 
-    <button class="finishBtn" id="btnFinish" onclick="finish()">Finish</button>
-  </div>
+      <button class="finishBtn" id="btnFinish" onclick="finish()">
+        Finish
+      </button>
+    </div>
 
-  <script>
-    // ******************************************************
-    // URL ของ Google Apps Script (ใส่ Link เดิมของคุณที่นี่)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw0HXbCaUjhV1nIw5x3MBZbosdOelH4isIgb2Cht7hU8lCSNtBbUnRvXzKHYx868FI4zg/exec'; 
-    // ******************************************************
+    <script>
+      // ******************************************************
+      // URL ของ Google Apps Script (ใส่ Link เดิมของคุณที่นี่)
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbw0HXbCaUjhV1nIw5x3MBZbosdOelH4isIgb2Cht7hU8lCSNtBbUnRvXzKHYx868FI4zg/exec";
+      // ******************************************************
 
-    let selectedValue = ""; 
+      let selectedValue = "";
 
-    function selectCategory(btn) {
-        let buttons = document.getElementsByName('category');
-        buttons.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
+      function selectCategory(btn) {
+        let buttons = document.getElementsByName("category");
+        buttons.forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
         selectedValue = btn.value;
-    }
-
-    function finish() {
+      }
+      function finish() {
         if (selectedValue === "") {
-            alert("กรุณาเลือกหมวดหมู่หนังสือที่ชอบก่อนครับ!");
-            return;
+          alert("Please select a category!");
+          return;
         }
 
-        const btn = document.getElementById('btnFinish');
-        btn.innerText = "Saving...";
-        btn.disabled = true;
+        // Create a hidden form to send data to Flask
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = "/recommend"; // This matches your @app.route("/recommend")
 
-        const userEmail = localStorage.getItem('userEmail');
+        const hiddenField = document.createElement("input");
+        hiddenField.type = "hidden";
+        hiddenField.name = "category"; // This matches request.form["category"]
+        hiddenField.value = selectedValue;
 
-        if (!userEmail) {
-            alert("ไม่พบข้อมูลการล็อกอิน กรุณาล็อกอินใหม่");
-            window.location.href = "../loginpage/index.html"; 
-            return;
-        }
-
-        const data = {
-            action: 'updateCategory', 
-            email: userEmail,         
-            category: selectedValue   
-        };
-
-        fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            mode: 'no-cors'
-        })
-        .then(() => {
-            alert("บันทึกหมวดหมู่เรียบร้อย!");
-            window.location.href = "../homepage/home.html";
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            alert("เกิดข้อผิดพลาดในการเชื่อมต่อ");
-            btn.innerText = "Finish";
-            btn.disabled = false;
-        });
-    }
-  </script>
-
-</body>
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit(); // This sends the user to the recommendation page
+      }
+    </script>
+  </body>
 </html>
