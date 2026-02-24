@@ -33,6 +33,19 @@
     </div>
 
     <main class="content-container">
+
+        <div class="borrowed-section">
+            <h2>Your Borrowed Books</h2>
+            <ul>
+            {% if borrowed %}
+                {% for book in borrowed %}
+                    <li>{{ book[0] }} (Borrowed on {{ book[1] }})</li>
+                {% endfor %}
+            {% else %}
+                <p>You haven't borrowed any books yet.</p>
+            {% endif %}
+            </ul>
+        </div>
         <div class="section-header">
             <h2 id="displayTitle">Recommended Books</h2>
             <span id="resultCount" style="color: #666; font-size: 14px"></span>
@@ -42,15 +55,24 @@
             {% if rec %}
                 {% for book in rec %}
                     <div class="book-card">
-                        <div class="thumbnail">
-                            <img src="{{ book.img or 'https://via.placeholder.com/200x300?text=No+Cover' }}" alt="{{ book.title }}">
-                        </div>
-                        <div class="book-info">
-                            <h3 class="book-title">{{ book.title }}</h3>
-                            <p><strong>Category:</strong> {{ book.category }}</p>
-                            <p><strong>Rating:</strong> {{ book.rating }}</p>
-                            <p><strong>Tags:</strong> {{ book.tags }}</p>
-                        </div>
+                        <img src="{{ book.img }}" alt="{{ book.title }}" class="book-image">
+                        <h3>{{ book.title }}</h3>
+                        <p>Category: {{ book.category }}</p>
+                        <p>Rating: {{ book.rating }}</p>
+                        <p>Tags: {{ book.tags }}</p>
+
+                        {% if book.title in borrowed_titles %}
+                            <form action="/return" method="POST">
+                                <input type="hidden" name="book" value="{{ book.title }}">
+                                <button type="submit" class="return-btn">Return</button>
+                            </form>
+                        {% else %}
+                            <form action="/borrow" method="POST">
+                                <input type="hidden" name="book" value="{{ book.title }}">
+                                <button type="submit" class="borrow-btn">Borrow</button>
+                            </form>
+                        {% endif %}
+
                     </div>
                 {% endfor %}
             {% else %}

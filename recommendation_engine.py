@@ -1,7 +1,7 @@
 class RecommendationEngine:
     def __init__(self, dataFrame):
         self.books = dataFrame
-    def recommend_by_category(self, category, top_n=8):
+    def recommend_by_category(self, category, top_n=16):
         filtered = self.books[
             self.books["category"].str.contains(category, case=False, na=False)
         ]

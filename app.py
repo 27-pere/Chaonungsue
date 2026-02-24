@@ -53,6 +53,16 @@ def init_db():
         password TEXT NOT NULL
     )
     """)
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS borrowed_books (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        book_title TEXT NOT NULL,
+        borrow_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id)
+    )
+    """)
     conn.commit()
     conn.close()
 
@@ -99,7 +109,33 @@ def like():
 def recommend():
     category = request.form["category"]
     rec = engine.recommend_by_category(category)
-    return render_template("homepage/home.html", rec=rec)
+
+    session["rec"] = rec
+    return redirect(url_for("home"))
+
+@app.route("/home")
+def home():
+    if "user_id" not in session:
+        return redirect(url_for("login_page"))
+
+    user_id = session["user_id"]
+
+    with sqlite3.connect("database.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT book_title FROM borrowed_books
+            WHERE user_id = ?
+        """, (user_id,))
+        borrowed_rows = cursor.fetchall()
+
+    borrowed_titles = [row[0] for row in borrowed_rows]
+    rec = session.get("rec", [])
+
+    return render_template(
+        "homepage/home.html",
+        borrowed_titles=borrowed_titles,
+        rec=rec
+    )
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -146,7 +182,7 @@ def login():
         if user and check_password_hash(user[3], password):
             session["user_id"] = user[0]
             session["username"] = user[1]
-            return redirect(url_for("home"))
+            return redirect(url_for("ask_page"))
         else:
             return "Invalid username or password"
 
@@ -155,8 +191,8 @@ def login():
     
 
     
-@app.route("/home")
-def home():
+@app.route("/ask")
+def ask_page():
     if "user_id" not in session:
         return redirect(url_for("login_page"))
     
@@ -166,6 +202,56 @@ def home():
 def logout():
     session.clear()
     return redirect(url_for("login_page"))
+
+@app.route("/borrow", methods=["POST"])
+def borrow():
+    if "user_id" not in session:
+        return redirect(url_for("login_page"))
+
+    book_title = request.form["book"]
+    user_id = session["user_id"]
+
+    with sqlite3.connect("database.db") as conn:
+        cursor = conn.cursor()
+
+        # Check if already borrowed
+        cursor.execute("""
+            SELECT * FROM borrowed_books
+            WHERE user_id = ? AND book_title = ?
+        """, (user_id, book_title))
+
+        already_borrowed = cursor.fetchone()
+
+        if already_borrowed:
+            return redirect(url_for("home"))  # do nothing if already borrowed
+
+        # Insert if not borrowed
+        cursor.execute("""
+            INSERT INTO borrowed_books (user_id, book_title)
+            VALUES (?, ?)
+        """, (user_id, book_title))
+
+        conn.commit()
+
+    return redirect(url_for("home"))
+
+@app.route("/return", methods=["POST"])
+def return_book():
+    if "user_id" not in session:
+        return redirect(url_for("login_page"))
+
+    book_title = request.form["book"]
+    user_id = session["user_id"]
+
+    with sqlite3.connect("database.db") as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            DELETE FROM borrowed_books
+            WHERE user_id = ? AND book_title = ?
+        """, (user_id, book_title))
+        conn.commit()
+
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
     app.run(debug=True)
