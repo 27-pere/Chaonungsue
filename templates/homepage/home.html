@@ -34,18 +34,6 @@
 
     <main class="content-container">
 
-        <div class="borrowed-section">
-            <h2>Your Borrowed Books</h2>
-            <ul>
-            {% if borrowed %}
-                {% for book in borrowed %}
-                    <li>{{ book[0] }} (Borrowed on {{ book[1] }})</li>
-                {% endfor %}
-            {% else %}
-                <p>You haven't borrowed any books yet.</p>
-            {% endif %}
-            </ul>
-        </div>
         <div class="section-header">
             <h2 id="displayTitle">Recommended Books</h2>
             <span id="resultCount" style="color: #666; font-size: 14px"></span>
