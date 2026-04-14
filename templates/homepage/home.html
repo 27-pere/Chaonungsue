@@ -10,10 +10,18 @@
 <body>
     <header class="navbar">
         <h2>ChaoNungSue</h2>
+        <button  class="hire-btn" onclick="ask()">Back</button>
+
+        <script>
+            function ask() {
+            window.location.href = "ask";
+            }
+        </script>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="ค้นหาหนังสือ..." />
             <i class="bx bx-search"></i>
         </div>
+        <!--<button class="hire-btn" onclick="ask()">Back</button>-->
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -21,6 +29,10 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
+        <form action="/like" method="POST">
+            <input type="hidden" name="book" value="{{ b }}">
+            <button type="submit">{{ b }}</button>
+        </form>
         <button class="hire-btn" onclick="login()">Login</button>
     </header>
 
